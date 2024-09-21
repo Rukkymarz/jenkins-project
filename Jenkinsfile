@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       agent {
-        label 'node1'
+        label 'buildserver'
       }
       steps {
         echo 'Building the application'
@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Test') {
       agent {
-        label 'node1'
+        label 'buildserver'
       }
     steps {
       echo 'Running tests'
@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Deploy') {
       agent {
-        label 'node2'
+        label 'tomcat'
       }
       steps {
         echo 'Deploying the application'
